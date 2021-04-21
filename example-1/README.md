@@ -26,13 +26,13 @@ Type "help" for help.
 postgres=# \timing
 Timing is on.
 
-postgres=# ALTER TABLE orig_table ADD COLUMN foo TEXT DEFAULT NULL;
+postgres=# ALTER TABLE test ADD COLUMN foo TEXT DEFAULT NULL;
 ALTER TABLE
-Time: 8.175 ms
+Time: 7.490 ms
 
-postgres=# ALTER TABLE orig_table DROP COLUMN foo;
+postgres=# ALTER TABLE test DROP COLUMN foo;
 ALTER TABLE
-Time: 1016.343 ms (00:01.016)
+Time: 4.598 ms
 ```
 
 _Postgres 11.11_
@@ -45,11 +45,11 @@ Type "help" for help.
 postgres=# \timing
 Timing is on.
 
-postgres=# ALTER TABLE orig_table ADD COLUMN foo TEXT DEFAULT NULL;
+postgres=# ALTER TABLE test ADD COLUMN foo TEXT DEFAULT NULL;
 ALTER TABLE
-Time: 8.848 ms
+Time: 4.217 ms
 
-postgres=# ALTER TABLE orig_table DROP COLUMN foo;
+postgres=# ALTER TABLE test DROP COLUMN foo;
 ALTER TABLE
-Time: 3.647 ms
+Time: 3.789 ms
 ```
