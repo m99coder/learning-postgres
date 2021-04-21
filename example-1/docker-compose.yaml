@@ -1,20 +1,11 @@
 version: "3"
 services:
-  pg10:
-    image: postgres:10
-    environment:
-      POSTGRES_PASSWORD: example
-    ports:
-      - "5432:5432"
-    restart: unless-stopped
-    volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-  pg11:
+  pg:
     image: postgres:11
     environment:
       POSTGRES_PASSWORD: example
     ports:
-      - "5433:5432"
+      - "5432:5432"
     restart: unless-stopped
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql

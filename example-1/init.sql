@@ -1,11 +1,20 @@
--- create sample table
-CREATE TABLE test (id SERIAL NOT NULL, data FLOAT DEFAULT random());
+-- create tables
+CREATE TABLE parent_table (
+  id SERIAL PRIMARY KEY NOT NULL,
+  data FLOAT DEFAULT random()
+);
 
--- create indexes
-CREATE INDEX test_data_index ON test(data);
-CREATE INDEX test_id_index ON test(id);
+CREATE TABLE child_table (
+  id SERIAL PRIMARY KEY NOT NULL,
+  data FLOAT DEFAULT random()
+);
 
--- insert 1 million rows
-INSERT INTO test (id)
-  SELECT nextval('test_id_seq')
+-- insert 10k rows in parent table
+INSERT INTO parent_table (id)
+  SELECT nextval('parent_table_id_seq')
+    FROM generate_series(1, 10000);
+
+-- insert 1m rows in child table
+INSERT INTO child_table (id)
+  SELECT nextval('child_table_id_seq')
     FROM generate_series(1, 1000000);

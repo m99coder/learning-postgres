@@ -1,3 +1,3 @@
 # Learning Postgres
 
-- [Adding a column](example-1/README.md)
+- [Adding a column with foreign key constraint](example-1/README.md)
